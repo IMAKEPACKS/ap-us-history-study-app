@@ -73,7 +73,7 @@
 
             const gradeAnswer = async () => {
                 // Simulated AI grading (would be replaced with actual AI API call)
-                const gradeResponse = await fetch('/grade-saq', {
+                const gradeResponse = await fetch('http://127.0.0.1:5000', {
                     method: 'POST',
                     body: JSON.stringify({ 
                         prompt: prompt, 
