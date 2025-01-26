@@ -39,17 +39,62 @@
             "Period 9: 1980-Present"
         ];
 
-        const saqPrompts = {
-            "Period 1: 1491-1607": [
-                "Explain the impact of European colonization on Native American societies.",
-                "Compare the initial motivations of Spanish and English explorers in the Americas."
-            ],
-            "Period 2: 1607-1754": [
-                "Analyze the development of slavery in the colonial period.",
-                "Describe the economic and social differences between New England and Southern colonies."
-            ]
-            // More prompts for other periods would be added here
-        };
+const saqPrompts = {
+    "Period 1: 1491-1607": [
+        "Explain the impact of European colonization on Native American societies.",
+        "Compare the initial motivations of Spanish and English explorers in the Americas.",
+        "Analyze the ecological and cultural exchanges during the Columbian Exchange.",
+        "Describe the social and economic structures of indigenous societies before European contact."
+    ],
+    "Period 2: 1607-1754": [
+        "Analyze the development of slavery in the colonial period.",
+        "Describe the economic and social differences between New England and Southern colonies.",
+        "Explain the role of religion in shaping colonial society.",
+        "Discuss the impact of the Great Awakening on colonial social and religious life."
+    ],
+    "Period 3: 1754-1800": [
+        "Explain the key causes of the American Revolution.",
+        "Analyze the role of the Declaration of Independence in the revolutionary movement.",
+        "Compare the political philosophies of the Federalists and Anti-Federalists.",
+        "Discuss the challenges of creating a new government under the Articles of Confederation."
+    ],
+    "Period 4: 1800-1848": [
+        "Explain the impact of Jacksonian Democracy on American political participation.",
+        "Analyze the economic and social effects of the Market Revolution.",
+        "Discuss the expansion of slavery and its political consequences.",
+        "Describe the role of westward expansion in shaping national identity."
+    ],
+    "Period 5: 1844-1877": [
+        "Explain the key causes of the Civil War.",
+        "Analyze the impact of the Emancipation Proclamation.",
+        "Discuss the challenges of Reconstruction.",
+        "Compare the different approaches to Reconstruction under Johnson and Radical Republicans."
+    ],
+    "Period 6: 1865-1898": [
+        "Explain the rise of industrial capitalism and its social consequences.",
+        "Analyze the impact of immigration on American society.",
+        "Discuss the emergence of the Progressive Movement.",
+        "Describe the factors leading to American imperialism."
+    ],
+    "Period 7: 1890-1945": [
+        "Explain the causes and consequences of the Great Depression.",
+        "Analyze the impact of the New Deal on American society.",
+        "Discuss the United States' role in World War II.",
+        "Describe the social changes during the Roaring Twenties."
+    ],
+    "Period 8: 1945-1980": [
+        "Explain the origins and major events of the Cold War.",
+        "Analyze the Civil Rights Movement and its achievements.",
+        "Discuss the impact of the Vietnam War on American society.",
+        "Describe the social and cultural changes of the 1960s."
+    ],
+    "Period 9: 1980-Present": [
+        "Explain the economic and social impacts of globalization.",
+        "Analyze the changing role of the United States in global politics.",
+        "Discuss the impact of technological innovation on American society.",
+        "Describe the political and social changes of the early 21st century."
+    ]
+};
 
         function APUSHistoryApp() {
             const [selectedUnit, setSelectedUnit] = React.useState('');
