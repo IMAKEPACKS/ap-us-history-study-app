@@ -3,206 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AP US History SAQ Practice</title>
-    <script src="https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .unit-select, .answer-area {
-            margin-bottom: 20px;
-        }
-        textarea {
-            width: 100%;
-            height: 200px;
-        }
-    </style>
+    <title>SAT Study Portal</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root"></div>
+    <header>
+        <h1>SAT Study Portal</h1>
+        <p>Your one-stop resource for SAT Math and English/Reading preparation</p>
+        <div class="author-info">
+            <p>Created by <span class="author-name">Isaac Mullen</span> | Discord: <span class="discord-tag">lucidv61</span></p>
+        </div>
+    </header>
 
-    <script type="text/babel">
-        const units = [
-            "Period 1: 1491-1607",
-            "Period 2: 1607-1754",
-            "Period 3: 1754-1800",
-            "Period 4: 1800-1848",
-            "Period 5: 1844-1877",
-            "Period 6: 1865-1898",
-            "Period 7: 1890-1945",
-            "Period 8: 1945-1980",
-            "Period 9: 1980-Present"
-        ];
 
-const saqPrompts = {
-    "Period 1: 1491-1607": [
-        "Explain the impact of European colonization on Native American societies.",
-        "Compare the initial motivations of Spanish and English explorers in the Americas.",
-        "Analyze the ecological and cultural exchanges during the Columbian Exchange.",
-        "Describe the social and economic structures of indigenous societies before European contact.",
-        "Discuss the role of disease in European conquest of the Americas.",
-        "Evaluate the different strategies of European colonization in the early 17th century."
-    ],
-    "Period 2: 1607-1754": [
-        "Analyze the development of slavery in the colonial period.",
-        "Describe the economic and social differences between New England and Southern colonies.",
-        "Explain the role of religion in shaping colonial society.",
-        "Discuss the impact of the Great Awakening on colonial social and religious life.",
-        "Compare the economic systems of the Middle Colonies and the Southern Colonies.",
-        "Examine the growing tensions between British colonies and the British Crown before 1754."
-    ],
-    "Period 3: 1754-1800": [
-        "Explain the key causes of the American Revolution.",
-        "Analyze the role of the Declaration of Independence in the revolutionary movement.",
-        "Compare the political philosophies of the Federalists and Anti-Federalists.",
-        "Discuss the challenges of creating a new government under the Articles of Confederation.",
-        "Evaluate the impact of the American Revolution on different social groups.",
-        "Describe the process of state constitution-making during the Revolutionary era."
-    ],
-    "Period 4: 1800-1848": [
-        "Explain the impact of Jacksonian Democracy on American political participation.",
-        "Analyze the economic and social effects of the Market Revolution.",
-        "Discuss the expansion of slavery and its political consequences.",
-        "Describe the role of westward expansion in shaping national identity.",
-        "Compare the experiences of different social groups during the era of Manifest Destiny.",
-        "Evaluate the changing role of women in early 19th-century American society."
-    ],
-    "Period 5: 1844-1877": [
-        "Explain the key causes of the Civil War.",
-        "Analyze the impact of the Emancipation Proclamation.",
-        "Discuss the challenges of Reconstruction.",
-        "Compare the different approaches to Reconstruction under Johnson and Radical Republicans.",
-        "Evaluate the economic and social consequences of the Civil War.",
-        "Describe the experiences of African Americans during Reconstruction."
-    ],
-    "Period 6: 1865-1898": [
-        "Explain the rise of industrial capitalism and its social consequences.",
-        "Analyze the impact of immigration on American society.",
-        "Discuss the emergence of the Progressive Movement.",
-        "Describe the factors leading to American imperialism.",
-        "Compare the experiences of different immigrant groups in late 19th-century America.",
-        "Evaluate the economic and social impact of industrialization."
-    ],
-    "Period 7: 1890-1945": [
-        "Explain the causes and consequences of the Great Depression.",
-        "Analyze the impact of the New Deal on American society.",
-        "Discuss the United States' role in World War II.",
-        "Describe the social changes during the Roaring Twenties.",
-        "Compare the experiences of different social groups during the interwar period.",
-        "Evaluate the economic and social transformations of the early 20th century."
-    ],
-    "Period 8: 1945-1980": [
-        "Explain the origins and major events of the Cold War.",
-        "Analyze the Civil Rights Movement and its achievements.",
-        "Discuss the impact of the Vietnam War on American society.",
-        "Describe the social and cultural changes of the 1960s.",
-        "Compare the different strategies of civil rights activists.",
-        "Evaluate the domestic and international challenges of the post-World War II era."
-    ],
-    "Period 9: 1980-Present": [
-        "Explain the economic and social impacts of globalization.",
-        "Analyze the changing role of the United States in global politics.",
-        "Discuss the impact of technological innovation on American society.",
-        "Describe the political and social changes of the early 21st century.",
-        "Compare the presidencies of Ronald Reagan and Bill Clinton.",
-        "Evaluate the long-term consequences of the War on Terror."
-    ]
-};
+    <section id="resources" class="section">
+        <h2>Study Resources</h2>
+        <div class="resources-list">
+            <div class="resource-category">
+                <h3>Official SAT Practice Tests & Materials</h3>
+                <ul>
+                    <li>
+                        <a href="https://satsuite.collegeboard.org/practice/practice-tests/paper" target="_blank">
+                            Official College Board Practice Tests
+                        </a>
+                        - Download all official SAT practice tests
+                    </li>
+                    <li>
+                    <a href="https://oneprep.fly.dev" target="_blank">
+                        One Prep ❤️
+                    </a>
+                    - Best Website hands down for studying with question bank includes problems of varying difficulties.
 
-        function APUSHistoryApp() {
-            const [selectedUnit, setSelectedUnit] = React.useState('');
-            const [prompt, setPrompt] = React.useState('');
-            const [userAnswer, setUserAnswer] = React.useState('');
-            const [grade, setGrade] = React.useState(null);
+                    </li>
+                    <li>SAT Test Day Review Guide <a href="pdfs/SAT_Test_Day_Review.pdf" class="btn-small">Download PDF</a>
+                    <li>SAT General Study Guide <a href="pdfs/sudy_gieed.pdf" class="btn-small">Download PDF</a>
+                    <li>SAT Formula Sheet <a href="pdfs/Formula_Sheet.pdf" class="btn-small">Download PDF</a></li>
+                    <li>Practice Test 6 Explanations <a href="pdfs/6_EXPLANATIONS.pdf" class="btn-small">Download PDF</a></li>
+                </ul>
+            </div>
 
-            const generatePrompt = (unit) => {
-                const prompts = saqPrompts[unit] || [];
-                return prompts[Math.floor(Math.random() * prompts.length)] || 
-                    "No prompts available for this unit. Please select another.";
-            };
+            <div class="resource-category">
+                <h3>Vocabulary Resources</h3>
+                <ul>
+                    <li>
+                        <a href="https://quizlet.com/933705732/the-sat-roots-flash-cards/" target="_blank">
+                            SAT Roots Flashcards
+                        </a>
+                        - Study prefixes and suffixes
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/spreadsheets/d/1adwWb5KmkJsKo7QagIecnwAPojz3W9CAhbPT6fWp_V8/edit?gid=0#gid=0" target="_blank">
+                            Common SAT & ACT Vocabulary Sheet
+                        </a>
+                        - Essential words for both tests
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-            const handleUnitSelect = (e) => {
-                const unit = e.target.value;
-                setSelectedUnit(unit);
-                setPrompt(generatePrompt(unit));
-                setUserAnswer('');
-                setGrade(null);
-            };
+        <div class="attribution">
+            <p><strong>Attribution Notice:</strong> These study materials are not created by us. They are sourced from:</p>
+            <ul>
+                <li>The College Board (Official SAT Practice Tests and Materials)</li>
+                <li>Various educational content creators (Quizlet flashcards)</li>
+                <li>Public educational resources (Vocabulary sheets)</li>
+            </ul>
+            <p>All rights belong to their respective owners. Links are provided for educational purposes.</p>
+        </div>
+    </section>
 
-            const gradeAnswer = async () => {
-                // Simulated AI grading (would be replaced with actual AI API call)
-                const gradeResponse = await fetch('/grade-saq', {
-                    method: 'POST',
-                    body: JSON.stringify({ 
-                        prompt: prompt, 
-                        answer: userAnswer 
-                    })
-                });
-                const result = await gradeResponse.json();
-                setGrade(result.grade);
-            };
+    <footer>
+        <p>&copy; 2025 SAT Study Portal. All rights reserved.</p>
+    </footer>
 
-            return (
-                <div>
-                    <h1>AP US History SAQ Practice</h1>
-                    
-                    <div className="unit-select">
-                        <label>Select Unit: </label>
-                        <select 
-                            value={selectedUnit} 
-                            onChange={handleUnitSelect}
-                        >
-                            <option value="">Choose a Unit</option>
-                            {units.map(unit => (
-                                <option key={unit} value={unit}>{unit}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {selectedUnit && (
-                        <div>
-                            <h2>SAQ Prompt</h2>
-                            <p>{prompt}</p>
-                            <div className="instructions">
-                                <strong>Remember to ACE your answer:</strong>
-                                <ul>
-                                    <li>A - Answer the prompt directly</li>
-                                    <li>C - Clarify your points</li>
-                                    <li>E - Explain with specific historical evidence</li>
-                                </ul>
-                            </div>
-                            <div className="answer-area">
-                                <textarea
-                                    placeholder="Write your Short Answer Question response here..."
-                                    value={userAnswer}
-                                    onChange={(e) => setUserAnswer(e.target.value)}
-                                ></textarea>
-                            </div>
-                            <button onClick={gradeAnswer}>
-                                Submit & Grade Answer
-                            </button>
-
-                            {grade !== null && (
-                                <div>
-                                    <h3>Grade: {grade}/4</h3>
-                                    {grade === 4 && <p>Excellent response!</p>}
-                                    {grade === 3 && <p>Good response, could use more specific details.</p>}
-                                    {grade === 2 && <p>Needs more development and historical context.</p>}
-                                    {grade === 1 && <p>Significantly lacks historical understanding.</p>}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
-            );
-        }
-
-        ReactDOM.render(<APUSHistoryApp />, document.getElementById('root'));
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
